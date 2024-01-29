@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaWebb", "BibliotecaWebb.csproj", "{CF0E2C48-F9C2-4952-B6B6-8FBC80954DE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF0E2C48-F9C2-4952-B6B6-8FBC80954DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF0E2C48-F9C2-4952-B6B6-8FBC80954DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF0E2C48-F9C2-4952-B6B6-8FBC80954DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF0E2C48-F9C2-4952-B6B6-8FBC80954DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1E4F6CC-10D3-443D-95B2-851B38B26CFA}
+	EndGlobalSection
+EndGlobal

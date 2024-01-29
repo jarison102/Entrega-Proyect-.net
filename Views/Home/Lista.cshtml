@@ -1,0 +1,40 @@
+@model IEnumerable<BibliotecaWebb.Models.Autor>
+<link rel="stylesheet" href="~/css/Styletable.css" asp-append-version="true" />
+
+<h1>Lista De Autores</h1>
+
+<div class="table-responsive-vertical shadow-z-1">
+    <table id="table" class="custom-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombres Autor</th>
+                <th>Libros</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var autor in Model)
+        {
+            <tr>
+                <td>@autor.AutorID</td>
+                <td>@autor.Nombre</td>
+                <td>
+                    @if (autor.Libros != null && autor.Libros.Any())
+                    {
+                        <ul>
+                            @foreach (var libro in autor.Libros)
+                            {
+                                <li>@libro.Titulo</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span>Sin libros</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+    </table>
+</div>
