@@ -100,20 +100,7 @@ public class HomeController : Controller
         }
     }
     
-        [HttpPost]
-        public IActionResult EliminarAutor(int id)
-        {
-            try
-            {
-                _autorRepository.EliminarAutor(id);
-                return RedirectToAction("Lista");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error al eliminar autor: {ex.Message}");
-                return RedirectToAction("Error");
-            }
-        }
+
 
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

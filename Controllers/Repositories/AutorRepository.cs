@@ -96,30 +96,5 @@ namespace BibliotecaWebb.Repositories
                 return connection.Query<Libro>(sql, new { AutorID = autorId });
             }
         }
-
-public void EliminarAutor(int autorId)
-{
-    using (var connection = new SqlConnection(_connectionString))
-    {
-        connection.Open();
-
-        var deleteAutorYLibrosSql =
-            "BEGIN TRANSACTION " +
-            "DELETE FROM Libros WHERE AutorID = @AutorID " +
-            "DELETE FROM Autores WHERE AutorID = @AutorID " +
-            "COMMIT";
-
-        try
-        {
-            connection.Execute(deleteAutorYLibrosSql, new { AutorID = autorId });
-            Console.WriteLine("Autor y libros asociados eliminados correctamente");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error al eliminar el autor y sus libros: {ex.Message}");
-        }
-    }
-}
-
     }
 }
