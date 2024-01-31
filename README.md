@@ -27,7 +27,8 @@ La aplicación incluye las siguientes funcionalidades:
 
 ### Mostrar una lista de todos los libros registrados
 La aplicación mostrará una lista de todos los libros registrados, lo que facilitará la gestión y visualización de la biblioteca.
-![image](https://github.com/jarison102/ProyectoBiblioteca.net/assets/110105324/127271f6-8023-4131-9ed5-9fca966e44cf)
+![image](https://github.com/jarison102/Entrega-Proyect-.net/assets/110105324/ef1cdf1f-348f-479b-bc4c-b5888af2a738)
+
 
 
 
