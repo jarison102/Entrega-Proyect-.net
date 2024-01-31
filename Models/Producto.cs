@@ -21,4 +21,5 @@ namespace BibliotecaWebb.Models
         // Propiedad de navegación
         public Autor Autor { get; set; }
     }
+    
 }

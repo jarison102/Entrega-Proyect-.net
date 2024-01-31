@@ -1,9 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using Dapper;
-using BibliotecaWebb.Models; // Agrega esta línea para importar el espacio de nombres de las clases de modelos
-using BibliotecaWebb.Repositories;
-
+using BibliotecaWebb.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BibliotecaWebb.Repositories
 {
@@ -11,12 +11,12 @@ namespace BibliotecaWebb.Repositories
     {
         private readonly string _connectionString;
 
-        // Nuevo constructor que acepta la cadena de conexión directamente
         public AutorRepository(string connectionString)
         {
             _connectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
         }
- public List<Autor> ObtenerTodos()
+
+        public List<Autor> ObtenerTodos()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -26,13 +26,12 @@ namespace BibliotecaWebb.Repositories
 
                 foreach (var autor in autores)
                 {
-                    autor.Libros = ObtenerLibrosPorAutor(autor.AutorID).ToList(); // Convertir el IEnumerable a List
+                    autor.Libros = ObtenerLibrosPorAutor(autor.AutorID).ToList();
                 }
 
-                return autores.ToList(); // Convertir el IEnumerable a List antes de devolverlo
+                return autores.ToList();
             }
         }
-
 
         public void AgregarNuevo(string nombre)
         {
@@ -58,7 +57,6 @@ namespace BibliotecaWebb.Repositories
                 {
                     Console.WriteLine($"Error al agregar el autor: {ex.Message}");
                 }
-
             }
         }
 
@@ -98,6 +96,30 @@ namespace BibliotecaWebb.Repositories
                 return connection.Query<Libro>(sql, new { AutorID = autorId });
             }
         }
+
+public void EliminarAutor(int autorId)
+{
+    using (var connection = new SqlConnection(_connectionString))
+    {
+        connection.Open();
+
+        var deleteAutorYLibrosSql =
+            "BEGIN TRANSACTION " +
+            "DELETE FROM Libros WHERE AutorID = @AutorID " +
+            "DELETE FROM Autores WHERE AutorID = @AutorID " +
+            "COMMIT";
+
+        try
+        {
+            connection.Execute(deleteAutorYLibrosSql, new { AutorID = autorId });
+            Console.WriteLine("Autor y libros asociados eliminados correctamente");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al eliminar el autor y sus libros: {ex.Message}");
+        }
     }
 }
 
+    }
+}

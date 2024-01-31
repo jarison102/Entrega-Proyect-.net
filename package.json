@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@nextui-org/button": "^2.0.26",
+    "@nextui-org/react": "^2.2.9",
+    "bootstrap-icons": "^1.11.3",
+    "framer-motion": "^11.0.3"
+  }
+}

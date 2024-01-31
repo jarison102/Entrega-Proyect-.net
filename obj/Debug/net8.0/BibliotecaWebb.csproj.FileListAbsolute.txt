@@ -513,3 +513,6 @@ C:\Users\jarim\Downloads\Conexion.net-master\obj\Debug\net8.0\refint\BibliotecaW
 C:\Users\jarim\Downloads\Conexion.net-master\obj\Debug\net8.0\BibliotecaWebb.pdb
 C:\Users\jarim\Downloads\Conexion.net-master\obj\Debug\net8.0\BibliotecaWebb.genruntimeconfig.cache
 C:\Users\jarim\Downloads\Conexion.net-master\obj\Debug\net8.0\ref\BibliotecaWebb.dll
+C:\Users\jarim\Downloads\Conexion.net-master\obj\Debug\net8.0\BibliotecaWebb.sourcelink.json
+C:\Users\jarim\Downloads\Conexion.net-master\bin\Debug\net8.0\package-lock.json
+C:\Users\jarim\Downloads\Conexion.net-master\bin\Debug\net8.0\package.json

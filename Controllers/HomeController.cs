@@ -69,21 +69,21 @@ public class HomeController : Controller
         return View();
     }
 
-[HttpPost]
-public IActionResult AgregarLibro(string titulo, int autorId)
-{
-    try
+    [HttpPost]
+    public IActionResult AgregarLibro(string titulo, int autorId)
     {
-        _autorRepository.AgregarLibro(titulo, autorId);
-        return RedirectToAction("Lista"); // Redirige a la página de lista después de agregar el libro
+        try
+        {
+            _autorRepository.AgregarLibro(titulo, autorId);
+            return RedirectToAction("Lista"); // Redirige a la página de lista después de agregar el libro
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Error al agregar libro: {ex.Message}");
+            // Puedes redirigir a una página de error o manejar de alguna otra manera
+            return RedirectToAction("Error");
+        }
     }
-    catch (Exception ex)
-    {
-        _logger.LogError($"Error al agregar libro: {ex.Message}");
-        // Puedes redirigir a una página de error o manejar de alguna otra manera
-        return RedirectToAction("Error");
-    }
-}
 
     public IActionResult Lista()
     {
@@ -99,10 +99,27 @@ public IActionResult AgregarLibro(string titulo, int autorId)
             return RedirectToAction("Error");
         }
     }
+    
+        [HttpPost]
+        public IActionResult EliminarAutor(int id)
+        {
+            try
+            {
+                _autorRepository.EliminarAutor(id);
+                return RedirectToAction("Lista");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error al eliminar autor: {ex.Message}");
+                return RedirectToAction("Error");
+            }
+        }
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
 }

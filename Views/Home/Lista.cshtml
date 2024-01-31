@@ -1,7 +1,9 @@
 @model IEnumerable<BibliotecaWebb.Models.Autor>
 <link rel="stylesheet" href="~/css/Styletable.css" asp-append-version="true" />
 
-<h1>Lista De Autores</h1>
+<center>
+    <h1>Lista De Autores</h1>
+</center>
 
 <div class="table-responsive-vertical shadow-z-1">
     <table id="table" class="custom-table">
@@ -10,31 +12,44 @@
                 <th>ID</th>
                 <th>Nombres Autor</th>
                 <th>Libros</th>
+                <th>Estado</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-        @foreach (var autor in Model)
-        {
-            <tr>
-                <td>@autor.AutorID</td>
-                <td>@autor.Nombre</td>
-                <td>
-                    @if (autor.Libros != null && autor.Libros.Any())
-                    {
-                        <ul>
-                            @foreach (var libro in autor.Libros)
-                            {
-                                <li>@libro.Titulo</li>
-                            }
-                        </ul>
-                    }
-                    else
-                    {
-                        <span>Sin libros</span>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
+            @foreach (var autor in Model)
+            {
+                <tr>
+                    <td>@autor.AutorID</td>
+                    <td>@autor.Nombre</td>
+                    <td>
+                        @if (autor.Libros != null && autor.Libros.Any())
+                        {
+                            <ul>
+                                @foreach (var libro in autor.Libros)
+                                {
+                                    <li>@libro.Titulo</li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <span>Sin libros</span>
+                        }
+                    </td>
+                    <td style="color: rgb(75, 179, 49); cursor: pointer">
+                        Vendido
+                    </td>
+                    <td>
+<form asp-controller="Home" asp-action="EliminarAutor" method="post">
+    <input type="hidden" name="id" value="@autor.AutorID" />
+    <button type="submit" class="btn btn-danger">
+        Eliminar
+    </button>
+</form>
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </div>

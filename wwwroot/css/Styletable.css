@@ -36,6 +36,8 @@ body {
   max-width: 100%;
   margin-bottom: 2rem;
   background-color: #fff;
+  border-radius: 10px; /* Agregar esquinas redondeadas a la tabla */
+  overflow: hidden; /* Asegurarse de que el contenido redondeado no se desborde */
 }
 
 .custom-table thead tr,
@@ -52,9 +54,8 @@ body {
   padding: 1.6rem;
   vertical-align: top;
   border-top: 0;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  border-radius: 10px; /* Agregar esquinas redondeadas a las celdas de la tabla */
 }
 
 .custom-table th {
@@ -72,3 +73,5 @@ body {
 .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
+
+
